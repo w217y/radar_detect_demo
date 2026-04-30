@@ -1,0 +1,26 @@
+stft_config:
+  nperseg: 256
+  window: 'hann'
+  img_width: 640    # 图像总像素宽度 (对应总 duration)
+  img_height: 640   # 图像总像素高度 (对应 f_max)
+  f_max: 500        # Y轴最高频率 (通常是 fs/2，这里假设 fs=1000)
+
+signals:
+  - type: "LFM"
+    params:
+      fs: 1000
+      duration: 1.0
+      f0: 100
+      f1: 300
+  - type: "CW"
+    params:
+      fs: 1000
+      duration: 1.0
+      fc: 200
+  - type: "FSK"
+    params:
+      fs: 1000
+      duration: 1.0
+      hop_frequencies: [100, 300, 200, 400]
+      hop_duration: 0.25
+      
